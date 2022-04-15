@@ -1,0 +1,223 @@
+//HTML part starts
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano</title>
+    <link rel="stylesheet" href="media/style1.css">
+</head>
+
+<body>
+    <div id="mainbody">
+        <!-- headings -->
+        <div class="gitem" id="head">
+            <h1>MY JS Piano</h1>
+
+        </div>
+        <!-- my piano  -->
+        <!-- im using data code to hover div white playing -->
+        <div class="gitem" id="pianodiv">
+            <div data-key="97" class="pbtn"><span class="disbtn">A</span></div><span class="disbtn"></span>
+            <div data-key="115" class="pbtn"><span class="disbtn">S</span></div>
+            <div data-key="101" class=" blackbtn" style="left: 18.4%;"><span class="disbtn">E</span></div>
+            <div data-key="114" class=" blackbtn" style="left: 27%;"><span class="disbtn">R</span></div>
+            <div data-key="100" class="pbtn"><span class="disbtn">D</span></div>
+            <div data-key="102" class="pbtn"><span class="disbtn">F</span></div>
+            <div data-key="103" class="pbtn"><span class="disbtn">G</span></div>
+            <div data-key="116" class=" blackbtn" style="left: 58.4%;"><span class="disbtn">T</span></div>
+            <div data-key="121" class=" blackbtn" style="left: 67.6%;"><span class="disbtn">Y</span></div>
+            <div data-key="117"class=" blackbtn" style="left: 77.5%;"><span class="disbtn">U</span></div>
+            <div data-key="104"  class="pbtn"><span class="disbtn">H</span></div>
+            <div data-key="106" class="pbtn"><span class="disbtn">J</span></div>
+            <div data-key="107" class="pbtn"><span class="disbtn">K</span></div>
+            <div data-key="108" class="pbtn"><span class="disbtn">L</span></div>
+            <div data-key="59" class="pbtn"><span class="disbtn">;</span></div>
+        </div>
+        <!-- footer -->
+        <div class="gitem" id="footer"></div>
+    </div>
+    <!-- audio in this data code is a self made attribute and value will recognis keycode   -->
+
+
+
+    <audio src="https://nemo0.github.io/js-piano/notes/C4.mp3" data-code="97"></audio>
+    <audio src="https://nemo0.github.io/js-piano/notes/Cs4.mp3" data-code="115"></audio>
+    <audio src="https://nemo0.github.io/js-piano/notes/D4.mp3" data-code="100"></audio>
+    <audio src="https://nemo0.github.io/js-piano/notes/Ds4.mp3" data-code="102"></audio>
+    <audio src="https://nemo0.github.io/js-piano/notes/E4.mp3" data-code="103"></audio>
+    <audio src="https://nemo0.github.io/js-piano/notes/F4.mp3" data-code="104"></audio>
+    <audio src="https://nemo0.github.io/js-piano/notes/Fs4.mp3" data-code="106"></audio>
+    <audio src="https://nemo0.github.io/js-piano/notes/G4.mp3" data-code="107"></audio>
+    <audio src="https://nemo0.github.io/js-piano/notes/Gs4.mp3" data-code="108"></audio>
+    <audio src="https://nemo0.github.io/js-piano/notes/A4.mp3" data-code="59"></audio>
+    <audio src="http://carolinegabriel.com/demo/js-keyboard/sounds/055.wav" data-code="101"></audio>
+    <audio src="http://carolinegabriel.com/demo/js-keyboard/sounds/045.wav" data-code="114"></audio>
+    <audio src="http://carolinegabriel.com/demo/js-keyboard/sounds/046.wav" data-code="116"></audio>
+    <audio src="http://carolinegabriel.com/demo/js-keyboard/sounds/047.wav" data-code="121"></audio>
+    <audio src="http://carolinegabriel.com/demo/js-keyboard/sounds/048.wav" data-code="117"></audio>
+
+    <!-- script -->
+    <script src="media/script1.js"> 
+    </script>
+</body>
+
+</html>
+//HTML part ENDS
+
+
+
+
+
+
+
+
+
+//CSS STARTS
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#mainbody{
+    min-height: 100vh;
+    height: auto;
+    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%); 
+     display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 100px 1fr 140px;
+   
+}
+
+
+
+#head{
+    text-align: center;
+    padding: 10px;
+    word-spacing: 50px;
+    letter-spacing: 20px;
+    background-color: black;
+    opacity: .4;
+    color: white;
+}
+
+
+
+#pianodiv{
+display: flex;
+flex-direction: row;
+border-top:5px solid black ;
+width: 100%;
+position: relative;
+}
+
+.pbtn{
+    
+    flex: 1;
+    margin: 0px 2px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    background-color: white;
+    opacity: .5;
+    
+
+    
+    
+}
+
+
+.blackbtn{
+    height: 45%;
+    width: 78px;
+    color: white;
+    background-color: black;
+    opacity: 1;
+    position: absolute;
+    top: 1;
+    z-index: 5;
+    border-radius: 5px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    
+}
+
+/* display on hover */
+
+.disbtn{
+    margin: 0px 0px 10px;
+     opacity: 0;
+    transition: opacity .8s ease-in;
+
+}
+#pianodiv:hover .disbtn{
+  opacity: 1;
+}
+
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: -6px 1px 4px rgba(69, 129, 147, 0.7);
+    font-size: 90px;
+    font-family: cursive;
+    color: silver;
+    
+}
+.playingbtn{
+    box-shadow: 0 0 1rem #072230;
+        transform:scale(.95) ;
+        
+}
+
+
+// CSS ENDS
+
+
+
+
+
+// JS STARTS
+// down a ststement also be written as
+//  let myaudio = document.querySelector (`audio[data-code="${kcode}"]`)
+// console.log(myaudio);
+let allbtns = document.querySelectorAll('#pianodiv > div');
+
+
+
+function playsound(e){
+    const kcode = e.keyCode;
+    let myaudio;
+    myaudio = document.querySelector('audio[data-code= ' + '"' + kcode + '"' + ']');
+    let btn;
+    btn = document.querySelector(`div[data-key = "${kcode}" ]`);
+    let nowplaying = document.getElementById('footer');
+    //  this statement shows if an undefined key is pressed return nothing 
+    if (!btn) return;
+
+
+    myaudio.currettime = 0;
+    myaudio.play();
+    btn.classList.add("playingbtn");
+    myaudio.addEventListener("ended",()=>{
+        btn.classList.remove("playingbtn");
+
+    });
+    nowplaying.innerText = "";
+    nowplaying.innerText += btn.innerText;
+
+
+    
+};
+
+document.addEventListener("keypress",playsound);
+
+//JS ENDS
+
+
